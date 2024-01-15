@@ -89,6 +89,8 @@
         "codeception/module-phpbrowser": "^3.0",
         "codeception/module-rest": "^3.3",
         "codeception/module-symfony": "^3.3",
-        "symfony/maker-bundle": "^1.52"
+        "doctrine/doctrine-fixtures-bundle": "^3.5",
+        "symfony/maker-bundle": "^1.52",
+        "zenstruck/foundry": "^1.36"
     }
 }

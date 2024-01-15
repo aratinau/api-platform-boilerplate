@@ -15,7 +15,7 @@
 
 ## Install Codeception
 
-`composer require --dev codeception/module-symfony`
+`composer require --dev codeception/module-symfony --dev`
 
 `composer require codeception/module-rest --dev`
 
@@ -46,3 +46,9 @@ Next steps:
 5. Run tests using: vendor/bin/codecept run
 
 ```
+
+## Fixtures
+
+`composer require doctrine/doctrine-fixtures-bundle --dev`
+
+`composer require zenstruck/foundry --dev`
