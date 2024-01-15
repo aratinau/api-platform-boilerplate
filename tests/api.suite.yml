@@ -1,0 +1,18 @@
+class_name: ApiTester
+actor: Api
+modules:
+    enabled:
+        - Symfony:
+              app_path: 'src'
+              environment: 'test'
+        - REST:
+              url: /api/
+              depends: Symfony
+        - Doctrine2:
+              depends: Symfony
+        - DataFactory:
+            depends: Doctrine2
+        - Asserts
+        #- \App\Tests\Helper\Api
+        #- \App\Tests\Helper\Factories
+        #- \App\Tests\Helper\User
