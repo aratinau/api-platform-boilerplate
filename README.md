@@ -52,3 +52,22 @@ Next steps:
 `composer require doctrine/doctrine-fixtures-bundle --dev`
 
 `composer require zenstruck/foundry --dev`
+
+## Events
+
+```yaml
+event_listeners_backward_compatibility_layer:true
+```
+
+`php bin/console debug:event-dispatcher`
+
+## Errors
+
+`Session was used while the request was declared stateless` fix avec 
+
+```yaml
+api_platform:
+    # ...
+    defaults:
+        stateless: false
+```
