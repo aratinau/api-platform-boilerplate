@@ -13,6 +13,6 @@ modules:
         - DataFactory:
             depends: Doctrine2
         - Asserts
-        #- \App\Tests\Helper\Api
+        - \App\Tests\Helper\Api
         #- \App\Tests\Helper\Factories
         #- \App\Tests\Helper\User

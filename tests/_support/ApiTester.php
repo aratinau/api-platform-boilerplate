@@ -28,44 +28,4 @@ class ApiTester extends \Codeception\Actor
      * Define custom actions here
      */
 
-    public function seeResponseJsonWithViolations($violations)
-    {
-        $messages = $this->grabDataFromResponseByJsonPath('$.violations.*.message');
-
-        foreach ($violations as $violation) {
-            $this->assertContains($violation, $messages);
-        }
-    }
-
-    public function seeResponseJsonWithExceptedViolations($exceptedViolations)
-    {
-        $violations = $this->grabDataFromResponseByJsonPath('$.violations.*');
-
-        foreach ($exceptedViolations as $exceptedViolation) {
-            $index = $this->searchByPropertyPath($exceptedViolation['propertyPath'], $violations);
-            $this->assertNotNull($index, 'The propertyPath "'.$exceptedViolation['propertyPath'].'"  was not found in the violations');
-
-            $this->assertEquals($exceptedViolation['propertyPath'], $violations[$index]['propertyPath']);
-        }
-
-        foreach ($exceptedViolations as $exceptedViolation) {
-            foreach ($violations as $violation) {
-                if ($violation["propertyPath"] === $exceptedViolation["propertyPath"]) {
-                    $this->assertEquals($violation["propertyPath"], $exceptedViolation["propertyPath"]);
-                    $this->assertEquals($exceptedViolation["message"], $violation["message"]);
-                }
-            }
-        }
-        $this->assertEquals(count($exceptedViolations), count($violations));
-    }
-
-    private function searchByPropertyPath($id, $array) {
-        foreach ($array as $key => $val) {
-            if ($val['propertyPath'] === $id) {
-                return $key;
-            }
-        }
-        return null;
-    }
-
 }
